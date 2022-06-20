@@ -1,0 +1,132 @@
+@use "reset.scss";
+@use "typography.scss";
+@use "hero.scss";
+@use "faq.scss";
+@use "media.scss";
+@use "contact.scss";
+@use "blockquote.scss";
+@use "header.scss";
+@use "footer.scss";
+@use "variables.scss" as v;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,700&display=swap");
+
+:root {
+    scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+}
+
+/*Resuable containers*/
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px 15px;
+}
+
+.container--dark-bg {
+    display: grid;
+    place-items: center;
+    padding: 30px 10px 20px 10px;
+    background-color: v.$primary-text;
+    opacity: 0.9;
+    color: v.$secondary-text;
+    margin-top: 30px;
+}
+
+.button-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+/*Buttons and links*/
+
+@media only screen and (max-width: v.$layour-breakpoint-sm) {
+    .button-sm-block {
+        display: flex;
+        margin: 15px 0 10px 0;
+        justify-content: center;
+    }
+}
+
+@mixin button-styles {
+    background-color: v.$bright-accent;
+    color: v.$secondary-text;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &:hover,
+    &:focus {
+        background-color: v.$darker-accent;
+    }
+}
+
+.button {
+    @include button-styles();
+    text-transform: uppercase;
+    padding: 12px 30px;
+
+    &--small {
+        @include button-styles();
+        padding: 8px 20px;
+        font-size: 1rem;
+    }
+
+    &--outline {
+        @include button-styles();
+        color: v.$bright-accent;
+        background-color: v.$secondary-text;
+        padding: 4px 20px;
+        font-size: 1rem;
+        outline: 2px solid v.$bright-accent;
+
+        &:hover,
+        &:focus {
+            background-color: v.$bright-accent;
+            color: v.$secondary-text;
+        }
+    }
+}
+
+.link {
+    color: v.$bright-accent;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &--dark {
+        color: v.$primary-text;
+    }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

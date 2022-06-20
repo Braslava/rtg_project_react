@@ -1,0 +1,109 @@
+@use "variables.scss" as v;
+
+.faq-container {
+    list-style: none;
+    margin: 1rem 0 0 0;
+    padding: 0;
+}
+
+.question-container {
+    margin: 2rem 0.5rem;
+}
+
+.question {
+    display: block;
+    color: v.$darker-accent;
+    margin: 16px 0 8px;
+    padding: 0;
+    text-align: left;
+    font-weight: 500;
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    &:hover {
+        color: v.$bright-accent;
+    }
+}
+
+.answer {
+    margin: 10px 0 16px 0;
+    padding-left: 10px;
+}
+
+.list {
+    margin-top: 8px;
+}
+
+.search-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin: 0 auto 1rem;
+    padding: 1rem 2rem;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    background-color: v.$background;   
+
+    
+
+
+    &__input {
+        margin-left: 5px;
+        border: none;
+        padding: 4px;
+        -webkit-appearance: none;
+
+        &:focus, &:hover {
+            border-bottom: 3px solid v.$bright-accent;
+            margin-bottom: -3px;
+            outline: none;
+        }
+    }
+
+    // removes the default clear button from search input
+    input::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+    }
+
+    @media only screen and (max-width: v.$layour-breakpoint-sm) {
+        width: 100%;
+        
+        &__input {
+            margin-left: 0;
+        }
+    }
+}
+
+
+.chevron::before {
+    border-style: solid;
+    border-width: 0.25em 0.25em 0 0;
+    content: "";
+    display: inline-block;
+    height: 0.45em;
+    left: 0.15em;
+    position: relative;
+    top: -0.1em;
+    transform: rotate(-45deg);
+    width: 0.45em;
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+.chevron.right:before {
+    left: 0;
+    transform: rotate(45deg);
+}
+
+.chevron.bottom:before {
+    top: -0.15em;
+
+    transform: rotate(135deg);
+}
+
+.hidden {
+    display: none;
+}
+

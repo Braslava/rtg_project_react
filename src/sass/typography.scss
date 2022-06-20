@@ -1,0 +1,31 @@
+@use "variables.scss" as v;
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap");
+
+.heading {
+    &--main {
+        font-size: 3.5rem;
+        text-align: center;
+        font-family: "PT Serif", serif;
+
+        @media only screen and (max-width: v.$layour-breakpoint-sm) {
+            font-size: 2.5rem;
+        }
+    }
+    &--section {
+        font-size: 2.5rem;
+        text-align: center;
+        color: v.$darker-accent;
+    }
+}
+
+.subheading {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-align: center;
+    color: v.$darker-accent;
+}
+
+.caption {
+    margin: 10px 0;
+    color: v.$middle-text;
+}

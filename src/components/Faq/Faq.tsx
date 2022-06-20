@@ -8,9 +8,8 @@ const Faq: FC = () => {
     const [openQuestion, setOpenQuestion] = useState<string | null>(null);
     const [searchTerm, setSearchTerm] = useState<string>("");
 
-    const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target.value);
-        setSearchTerm(e.target.value);
+    const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
+        setSearchTerm(e.target.value.toLowerCase().trim());
         const filteredData = faqData.filter(
             (item) =>
                 item.answer.toLowerCase().includes(searchTerm) ||
@@ -70,7 +69,6 @@ const Faq: FC = () => {
                         question={item.question}
                         answer={item.answer}
                         index={index}
-                        //  openQuestion={openQuestion}
                         setOpenQuestion={setOpenQuestion}
                         isOpen={openQuestion === item.question}
                     />

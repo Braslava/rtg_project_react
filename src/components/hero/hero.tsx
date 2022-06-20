@@ -1,10 +1,11 @@
 import React, {FC} from 'react';
 
 
-export const Hero: FC = () => {
+ const Hero: FC = () => {
   return (
     <div>
       
     </div>
   );
 }
+ export default Hero;

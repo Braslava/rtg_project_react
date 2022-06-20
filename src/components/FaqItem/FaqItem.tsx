@@ -15,7 +15,6 @@ const FaqItem: FC<FaqItemProps> = ({
     setOpenQuestion,
     isOpen,
 }) => {
-    
     const handleQuestionClick = () => {
         if (isOpen) {
             setOpenQuestion(null);
@@ -26,8 +25,12 @@ const FaqItem: FC<FaqItemProps> = ({
     return (
         <li className="question-container" key={question}>
             <button
-                onClick={() => handleQuestionClick()}
-                className="question chevron right"
+                onClick={handleQuestionClick}
+                className={
+                    isOpen
+                        ? "question chevron bottom"
+                        : "question chevron right"
+                }
                 aria-expanded={isOpen ? "true" : "false"}
                 aria-controls={`item ${index}`}
             >

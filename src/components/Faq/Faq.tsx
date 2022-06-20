@@ -1,10 +1,28 @@
-import React, { FC } from "react";
+import React, { FC, ChangeEvent } from "react";
 import { useState } from "react";
 import faqData from "../../faq-data";
 import FaqItem from "../FaqItem/FaqItem";
 
 const Faq: FC = () => {
+    const [faqItems, setFaqItems] = useState(faqData);
     const [openQuestion, setOpenQuestion] = useState<string | null>(null);
+    const [searchTerm, setSearchTerm] = useState<string>("");
+
+    const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+        console.log(e.target.value);
+        setSearchTerm(e.target.value);
+        const filteredData = faqData.filter(
+            (item) =>
+                item.answer.toLowerCase().includes(searchTerm) ||
+                item.question.toLowerCase().includes(searchTerm)
+        );
+        setFaqItems(filteredData);
+    };
+
+    const handleClearSearch = () => {
+        setSearchTerm("");
+        setFaqItems(faqData);
+    };
     return (
         <section className="faq flex-container" id="faq-section">
             <h2 className="heading--section">Frequently asked questions</h2>
@@ -17,9 +35,15 @@ const Faq: FC = () => {
                     autoComplete="off"
                     spellCheck="false"
                     placeholder="Enter a search term"
+                    value={searchTerm}
+                    onChange={handleSearchInputChange}
                 />
 
-                <button className="button--outline" id="clear-search">
+                <button
+                    className="button--outline"
+                    id="clear-search"
+                    onClick={handleClearSearch}
+                >
                     Clear
                 </button>
             </div>
@@ -40,13 +64,13 @@ const Faq: FC = () => {
                 </button>
             </div>
             <ul className="faq-container" id="faq">
-                {faqData.map((item, index) => (
+                {faqItems.map((item, index) => (
                     <FaqItem
                         key={item.question}
                         question={item.question}
                         answer={item.answer}
                         index={index}
-                      //  openQuestion={openQuestion}
+                        //  openQuestion={openQuestion}
                         setOpenQuestion={setOpenQuestion}
                         isOpen={openQuestion === item.question}
                     />

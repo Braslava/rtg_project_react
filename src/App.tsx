@@ -1,46 +1,14 @@
 import React, { FC } from "react";
 import "./sass/main.scss";
+import Header from "./components/Header/Header";
 import Faq from "./components/Faq/Faq";
+
 
 const App: FC = () => {
     return (
         <div className="App">
-            <header className="header">
-                <nav className="nav" data-visible="false" id="navigation">
-                    <ul className="nav__list">
-                        <li className="nav__link">
-                            <a href="#hero" className="link link--dark">
-                                Home
-                            </a>
-                        </li>
-                        <li className="nav__link">
-                            <a href="#faq-section" className="link link--dark">
-                                FAQ
-                            </a>
-                        </li>
-                        <li className="nav__link">
-                            <a href="#contact" className="link link--dark">
-                                Contact
-                            </a>
-                        </li>
-                        <li className="nav__link">
-                            <a href="#quote" className="link link--dark">
-                                Inspiration
-                            </a>
-                        </li>
-                        <li className="nav__link">
-                            <a href="menu.html" className="link link--dark">
-                                Menu
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <button
-                    className="nav__toggle"
-                    aria-controls="navigation"
-                    aria-expanded="false"
-                ></button>
-            </header>
+          <Header />
+            
             <main>
                 <section className="intro" id="hero">
                     <div className="flex-container">

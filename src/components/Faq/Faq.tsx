@@ -1,5 +1,4 @@
-import React, { FC, ChangeEvent } from "react";
-import { useState } from "react";
+import React, { FC, ChangeEvent, useState } from "react";
 import faqData from "../../faq-data";
 import FaqItem from "../FaqItem/FaqItem";
 

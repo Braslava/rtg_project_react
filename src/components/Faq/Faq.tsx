@@ -7,8 +7,11 @@ const Faq: FC = () => {
     const [faqItems, setFaqItems] = useState(faqData);
     const [openQuestion, setOpenQuestion] = useState<string | null>(null);
     const [searchTerm, setSearchTerm] = useState<string>("");
+    const [allAnswersOpen, setAllAnswersOpen] = useState<boolean>(false);
 
-    const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
+    const handleSearchInputChange = (
+        e: ChangeEvent<HTMLInputElement>
+    ): void => {
         setSearchTerm(e.target.value.toLowerCase().trim());
         const filteredData = faqData.filter(
             (item) =>
@@ -18,10 +21,30 @@ const Faq: FC = () => {
         setFaqItems(filteredData);
     };
 
-    const handleClearSearch = () => {
+    const handleClearSearch = (): void => {
         setSearchTerm("");
         setFaqItems(faqData);
     };
+
+    const handleOpenAll = (): void => {
+        console.log("oepn all");
+        setAllAnswersOpen(true);
+    };
+
+    const handleCloseAll = (): void => {
+        console.log("close all");
+        setAllAnswersOpen(false);
+        setOpenQuestion(null);
+    };
+
+    const isItemOpen = (question: string): boolean => {
+        if (allAnswersOpen) {
+            return true;
+        } else if (openQuestion === question) {
+            return true;
+        } else return false;
+    };
+
     return (
         <section className="faq flex-container" id="faq-section">
             <h2 className="heading--section">Frequently asked questions</h2>
@@ -51,6 +74,7 @@ const Faq: FC = () => {
                     className="button--small"
                     aria-controls="faq"
                     id="show-all-btn"
+                    onClick={handleOpenAll}
                 >
                     Open all
                 </button>
@@ -58,6 +82,7 @@ const Faq: FC = () => {
                     className="button--small"
                     aria-controls="faq"
                     id="hide-all-btn"
+                    onClick={handleCloseAll}
                 >
                     Close all
                 </button>
@@ -70,7 +95,9 @@ const Faq: FC = () => {
                         answer={item.answer}
                         index={index}
                         setOpenQuestion={setOpenQuestion}
-                        isOpen={openQuestion === item.question}
+                        isOpen={isItemOpen(item.question)}
+                        // allAnswersOpen={allAnswersOpen}
+                        setAllAnswersOpen={setAllAnswersOpen}
                     />
                 ))}
             </ul>

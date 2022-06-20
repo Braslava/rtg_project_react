@@ -6,6 +6,8 @@ export interface FaqItemProps {
     index: number;
     isOpen: boolean;
     setOpenQuestion: Dispatch<SetStateAction<string | null>>;
+    // allAnswersOpen: boolean;
+    setAllAnswersOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 const FaqItem: FC<FaqItemProps> = ({
@@ -16,11 +18,7 @@ const FaqItem: FC<FaqItemProps> = ({
     isOpen,
 }) => {
     const handleQuestionClick = () => {
-        if (isOpen) {
-            setOpenQuestion(null);
-        } else {
-            setOpenQuestion(question);
-        }
+        isOpen ? setOpenQuestion(null) : setOpenQuestion(question);
     };
     return (
         <li className="question-container" key={question}>

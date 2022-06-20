@@ -1,4 +1,4 @@
-const faqData: {question: string, answer: string}[] = [
+const faqData: { question: string, answer: string } []= [
     {
         question: "How do I make a regular table booking?",
         answer: "You can book a table by calling +371 12345678 or emailing to blackcat@blackcatresto.lv.",
@@ -17,19 +17,29 @@ const faqData: {question: string, answer: string}[] = [
     },
     {
         question: "What dishes are your speciality?",
-        answer: `<p>We serve:</p>
-        <ul class="list">
-            <li>Pastas</li>
-            <li>Burgers (including vegan and vegetarian)</li>
-            <li>Salads</li>
-            <li>Rissotos</li>
-            <li>Cakes and desserts</li>
-        </ul>`,
+        answer: `
+                <p>We serve:</p>
+                <ul class="list">
+                    <li>Pastas</li>
+                    <li>Burgers (including vegan and vegetarian)</li>
+                    <li>Salads</li>
+                    <li>Rissotos</li>
+                    <li>Cakes and desserts</li>
+                </ul>`
     },
     {
         question: `Where can I see the menu?`,
-        answer: `You can find the menu right here &#8594
-        <span class="button-sm-block"><a href="menu.html#menu" class="button--small button--link ">Menu</a></span>`,
+        answer: ` You can find the menu right here &#8594
+                <span class="button-sm-block">
+                    <a
+                        href="menu.html#menu"
+                        rel="noreferrer"
+                        class="button--small button--link "
+                    >
+                        Menu
+                    </a>
+                </span>
+   `
     },
 ];
 

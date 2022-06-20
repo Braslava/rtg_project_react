@@ -5,20 +5,26 @@ export interface FaqItemProps {
     answer: string;
     index: number;
     isOpen: boolean;
-    setOpenQuestion: Dispatch<SetStateAction<string | null>>;
+    openQuestions: string[];
+    setOpenQuestions: Dispatch<SetStateAction<string[]>>;
     // allAnswersOpen: boolean;
-    setAllAnswersOpen: Dispatch<SetStateAction<boolean>>;
+    //  setAllAnswersOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 const FaqItem: FC<FaqItemProps> = ({
     question,
     answer,
     index,
-    setOpenQuestion,
+    openQuestions,
+    setOpenQuestions,
     isOpen,
 }) => {
     const handleQuestionClick = () => {
-        isOpen ? setOpenQuestion(null) : setOpenQuestion(question);
+        isOpen
+            ? setOpenQuestions((prevQuestions) =>
+                  prevQuestions.splice(openQuestions.indexOf(question), 1)
+              )
+            : setOpenQuestions(openQuestions.concat(question));
     };
     return (
         <li className="question-container" key={question}>

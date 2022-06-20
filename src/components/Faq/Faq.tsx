@@ -1,12 +1,12 @@
 import React, { FC, ChangeEvent, useState } from "react";
-import faqData from "../../faq-data";
+import faqData from "../../data/faq-data";
 import FaqItem from "../FaqItem/FaqItem";
 
 const Faq: FC = () => {
     const [faqItems, setFaqItems] = useState(faqData);
-    const [openQuestion, setOpenQuestion] = useState<string | null>(null);
+    const [openQuestions, setOpenQuestions] = useState<string[]>([]);
     const [searchTerm, setSearchTerm] = useState<string>("");
-    const [allAnswersOpen, setAllAnswersOpen] = useState<boolean>(false);
+    //const [allAnswersOpen, setAllAnswersOpen] = useState<boolean>(false);
 
     const handleSearchInputChange = (
         e: ChangeEvent<HTMLInputElement>
@@ -27,21 +27,18 @@ const Faq: FC = () => {
 
     const handleOpenAll = (): void => {
         console.log("oepn all");
-        setAllAnswersOpen(true);
+        setOpenQuestions(faqData.map((item) => item.question));
+        //  setAllAnswersOpen(true);
     };
 
     const handleCloseAll = (): void => {
         console.log("close all");
-        setAllAnswersOpen(false);
-        setOpenQuestion(null);
+        //  setAllAnswersOpen(false);
+        setOpenQuestions([]);
     };
 
     const isItemOpen = (question: string): boolean => {
-        if (allAnswersOpen) {
-            return true;
-        } else if (openQuestion === question) {
-            return true;
-        } else return false;
+        return openQuestions.includes(question);
     };
 
     return (
@@ -87,16 +84,17 @@ const Faq: FC = () => {
                 </button>
             </div>
             <ul className="faq-container" id="faq">
-                {faqItems.map((item, index) => (
+                {faqItems.map((item, index: number) => (
                     <FaqItem
                         key={item.question}
                         question={item.question}
                         answer={item.answer}
                         index={index}
-                        setOpenQuestion={setOpenQuestion}
+                        openQuestions={openQuestions}
+                        setOpenQuestions={setOpenQuestions}
                         isOpen={isItemOpen(item.question)}
                         // allAnswersOpen={allAnswersOpen}
-                        setAllAnswersOpen={setAllAnswersOpen}
+                        //    setAllAnswersOpen={setAllAnswersOpen}
                     />
                 ))}
             </ul>

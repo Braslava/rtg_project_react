@@ -2,11 +2,11 @@ import React, { FC, ChangeEvent, useState } from "react";
 import faqData from "../../data/faq-data";
 import FaqItem from "../FaqItem/FaqItem";
 
-const Faq: FC = () => {
+const Faq: FC = (props) => {
     const [faqItems, setFaqItems] = useState(faqData);
     const [openQuestions, setOpenQuestions] = useState<string[]>([]);
     const [searchTerm, setSearchTerm] = useState<string>("");
-    //const [allAnswersOpen, setAllAnswersOpen] = useState<boolean>(false);
+    const [allAnswersOpen, setAllAnswersOpen] = useState<boolean>(false);
 
     const handleSearchInputChange = (
         e: ChangeEvent<HTMLInputElement>
@@ -28,12 +28,13 @@ const Faq: FC = () => {
     const handleOpenAll = (): void => {
         console.log("oepn all");
         setOpenQuestions(faqData.map((item) => item.question));
-        //  setAllAnswersOpen(true);
+        setAllAnswersOpen(true);
+        console.log(openQuestions);
     };
 
     const handleCloseAll = (): void => {
         console.log("close all");
-        //  setAllAnswersOpen(false);
+        setAllAnswersOpen(false);
         setOpenQuestions([]);
     };
 
@@ -93,8 +94,8 @@ const Faq: FC = () => {
                         openQuestions={openQuestions}
                         setOpenQuestions={setOpenQuestions}
                         isOpen={isItemOpen(item.question)}
-                        // allAnswersOpen={allAnswersOpen}
-                        //    setAllAnswersOpen={setAllAnswersOpen}
+                        allAnswersOpen={allAnswersOpen}
+                        // setAllAnswersOpen={setAllAnswersOpen}
                     />
                 ))}
             </ul>

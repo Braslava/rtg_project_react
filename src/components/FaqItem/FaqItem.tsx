@@ -62,9 +62,8 @@ const FaqItem: FC<FaqItemProps> = ({
                     aria-hidden={isOpen ? "false" : "true"}
                     id={`item ${index}`}
                     role="region"
-                >
-                    {answer}
-                </p>
+                    dangerouslySetInnerHTML={{ __html: answer }}
+                ></p>
             )}
         </li>
     );

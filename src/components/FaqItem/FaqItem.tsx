@@ -8,7 +8,6 @@ export interface FaqItemProps {
     openQuestions: string[];
     setOpenQuestions: Dispatch<SetStateAction<string[]>>;
     allAnswersOpen: boolean;
-    // setAllAnswersOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 const FaqItem: FC<FaqItemProps> = ({
@@ -38,7 +37,6 @@ const FaqItem: FC<FaqItemProps> = ({
                   )
                 : setOpenQuestions([question]);
         }
-        console.log(openQuestions);
     };
     return (
         <li className="question-container" key={question}>

@@ -26,14 +26,11 @@ const Faq: FC = (props) => {
     };
 
     const handleOpenAll = (): void => {
-        console.log("oepn all");
         setOpenQuestions(faqData.map((item) => item.question));
         setAllAnswersOpen(true);
-        console.log(openQuestions);
     };
 
     const handleCloseAll = (): void => {
-        console.log("close all");
         setAllAnswersOpen(false);
         setOpenQuestions([]);
     };
@@ -95,7 +92,6 @@ const Faq: FC = (props) => {
                         setOpenQuestions={setOpenQuestions}
                         isOpen={isItemOpen(item.question)}
                         allAnswersOpen={allAnswersOpen}
-                        // setAllAnswersOpen={setAllAnswersOpen}
                     />
                 ))}
             </ul>

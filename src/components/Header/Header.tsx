@@ -1,4 +1,7 @@
 import React, { FC, MouseEvent, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+// hash-link library is not compatioble with react router 6
+//import { HashLink } from "react-router-hash-link";
 
 export interface HeaderProps {}
 
@@ -11,6 +14,11 @@ const Header: FC = (props: HeaderProps) => {
         }
     };
 
+    let location = useLocation();
+    console.log(location);
+    const isOnHomePage = location.pathname === "/";
+    console.log(isOnHomePage);
+
     return (
         <header className="header">
             <nav
@@ -21,14 +29,30 @@ const Header: FC = (props: HeaderProps) => {
             >
                 <ul className="nav__list">
                     <li className="nav__link">
-                        <a href="#hero" className="link link--dark">
+                      { !isOnHomePage && (<Link
+                            to={{ pathname: "/#hero" }}
+                            className="link link--dark"
+                        >
                             Home
-                        </a>
+                        </Link>)}
+                        {isOnHomePage && (
+                            <a href="#hero" className="link link--dark">
+                                Home
+                            </a>
+                        )}
                     </li>
-                    <li className="nav__link">
-                        <a href="#faq-section" className="link link--dark">
+
+
+                   { isOnHomePage && (<><li className="nav__link">
+                         <a href="#faq-section" className="link link--dark">
                             FAQ
-                        </a>
+                        </a> 
+                        {/* <Link
+                            to={{ pathname: "/#faq-section" }}
+                            className="link link--dark"
+                        >
+                            FAQ
+                        </Link> */}
                     </li>
                     <li className="nav__link">
                         <a href="#contact" className="link link--dark">
@@ -39,12 +63,15 @@ const Header: FC = (props: HeaderProps) => {
                         <a href="#quote" className="link link--dark">
                             Inspiration
                         </a>
-                    </li>
-                    {/* <li className="nav__link">
-                        <a href="menu.html" className="link link--dark">
+                    </li></>)}
+                    <li className="nav__link">
+                        <Link
+                            to={{ pathname: "/menu" }}
+                            className="link link--dark"
+                        >
                             Menu
-                        </a>
-                    </li> */}
+                        </Link>
+                    </li>
                 </ul>
             </nav>
             <button

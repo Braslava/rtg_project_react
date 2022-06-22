@@ -42,7 +42,6 @@ import instagramIcon from "../../assets/social-media/icons8-instagram.svg"
                     <img
                         className="social-media-icon"
                         src={gitHubIcon}
-                        // src="assets/social-media/icons8-github.svg"
                         alt="author's Github"
                     />
                 </a>

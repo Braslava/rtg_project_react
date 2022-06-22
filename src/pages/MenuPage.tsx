@@ -15,6 +15,7 @@ const MenuPage: FC = () => {
                 <Menu />
                 {/* <Contacts />
                 <Quote /> */}
+                <Contacts />
             </main>
             <Footer />
         </>

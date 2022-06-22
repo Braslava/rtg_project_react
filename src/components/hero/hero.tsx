@@ -1,4 +1,5 @@
 import React, {FC} from 'react';
+import { Link } from 'react-router-dom';
 
  const Hero: FC = () => {
   return (
@@ -12,9 +13,9 @@ import React, {FC} from 'react';
                         <p className="pagraph subheading intro__subheading ">
                             We love black cats and serve amazing food for
                             people! Try out our{" "}
-                            <a href="menu.html#menu" className="link">
+                            <Link to="menu" className="link">
                                 summer menu
-                            </a>{" "}
+                            </Link>{" "}
                             or{" "}
                             <a href="index.html#contact" className="link">
                                 contact us

@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import {FC} from 'react';
 import gitHubIcon from "../../assets/social-media/icons8-github.svg"
 import linkedInIcon from "../../assets/social-media/icons8-linkedin.svg"
 import instagramIcon from "../../assets/social-media/icons8-instagram.svg"

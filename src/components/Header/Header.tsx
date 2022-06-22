@@ -1,4 +1,4 @@
-import React, { FC, MouseEvent, useState } from "react";
+import { FC, MouseEvent, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 // hash-link library does not work with react router 6
 //import { HashLink } from "react-router-hash-link";
@@ -15,9 +15,7 @@ const Header: FC = (props: HeaderProps) => {
     };
 
     let location = useLocation();
-    console.log(location);
     const isOnHomePage = location.pathname === "/";
-    console.log(isOnHomePage);
 
     return (
         <header className="header">

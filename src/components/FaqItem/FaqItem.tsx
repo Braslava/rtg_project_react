@@ -1,4 +1,4 @@
-import React, { FC, SetStateAction, Dispatch } from "react";
+import { FC, SetStateAction, Dispatch } from "react";
 
 export interface FaqItemProps {
     question: string;

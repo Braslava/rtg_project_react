@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import "./sass/main.scss";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";

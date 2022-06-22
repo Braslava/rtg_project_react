@@ -1,6 +1,10 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To run this project on your local machine: 
+- clone this repository: `git clone git@github.com:Braslava/rtg_project_react.git`
+- `cd` to the cloned repository
+- run `nom install` 
 
 ## Available Scripts
 

@@ -3,9 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 // hash-link library does not work with react router 6
 //import { HashLink } from "react-router-hash-link";
 
-export interface HeaderProps {}
-
-const Header: FC = (props: HeaderProps) => {
+const Header: FC = () => {
     const [navExpanded, setNavExpanded] = useState<boolean>(false);
 
     const handleNavClick = (e: MouseEvent) => {
@@ -15,7 +13,7 @@ const Header: FC = (props: HeaderProps) => {
     };
 
     let location = useLocation();
-    const isOnHomePage = location.pathname === "/";
+    const isOnHomePage: boolean = location.pathname === "/";
 
     return (
         <header className="header">

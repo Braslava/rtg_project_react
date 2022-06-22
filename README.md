@@ -1,4 +1,12 @@
-# Getting Started with Create React App
+# Sample Restaurant Landing Page
+
+This is a sample restaurant landing page made with react and typescript.
+
+## Dependencies 
+
+React v18.0+ and react router v6+.
+
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 To run this project on your local machine: 

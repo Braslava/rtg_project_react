@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
+// makes sure that link always directs to the top of the page
 const ScrollToTop = (): null => {
     const { pathname } = useLocation();
 
